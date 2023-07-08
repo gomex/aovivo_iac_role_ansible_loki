@@ -1,0 +1,10 @@
+---
+# handlers file for iac_role_loki
+- name: Restart loki
+  systemd:
+    name: docker-compose@loki
+    state: restarted
+
+- name: Systemd daemon reload
+  ansible.builtin.systemd:
+    daemon_reload: true
